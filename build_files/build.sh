@@ -22,3 +22,8 @@ dnf5 install -y emacs emacsclient vim
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+
+### Add NordVPN
+rpm -v --import "https://repo.nordvpn.com/gpg/nordvpn_public.asc"
+dnf5 config-manager addrepo --id="nordvpn" --set=baseurl="https://repo.nordvpn.com/yum/nordvpn/centos/$(uname -m)" --set=enabled=1 --overwrite
+dnf5 install -y nordvpn
